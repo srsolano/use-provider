@@ -140,7 +140,7 @@ function App() {
 
 ```JavaScript
 
-const CombinedProvider = composeProviders([
+const CombinedProvider = combineProviders([
     ProviderA,
     ProviderB,
     ...
