@@ -23,6 +23,8 @@ yarn add use-provider
 
 ## Usage
 
+With this module you can create multiple Contexts that are managed internally with `useReducer`.
+
 ### createProvider(initialState, reducer)
 
 ```JavaScript
