@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`combineProviders should create a combined provider 1`] = `
+<div>
+  <div>
+    State: 
+    a
+    <button>
+      click
+    </button>
+  </div>
+  <div>
+    State: 
+    b
+    <button>
+      click
+    </button>
+  </div>
+</div>
+`;
+
+exports[`createProvider should create a default context provider 1`] = `
+<div>
+  <div>
+    State: 
+    null
+    <button>
+      click
+    </button>
+  </div>
+</div>
+`;
+
+exports[`createProvider should create a valid context provider 1`] = `
+<div>
+  <div>
+    State: 
+    foo
+    <button>
+      click
+    </button>
+  </div>
+</div>
+`;

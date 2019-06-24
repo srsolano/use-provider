@@ -1,0 +1,57 @@
+{
+  "name": "use-provider",
+  "version": "1.0.0",
+  "description": "A React Hook that uses providers created with React Context.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srsolano/use-provider.git"
+  },
+  "author": "Ferran Solano <ferran@srsolano.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/srsolano/use-provider#readme",
+  "bugs": {
+    "url": "https://github.com/srsolano/use-provider/issues"
+  },
+  "keywords": [
+    "context",
+    "use-context",
+    "provider",
+    "state",
+    "store",
+    "reducer",
+    "use-reducer",
+    "react",
+    "react-hook",
+    "react-context"
+  ],
+  "main": "./dist/use-provider.js",
+  "files": [
+    "/dist",
+    "use-provider.js"
+  ],
+  "scripts": {
+    "build": "babel src -d ./dist --ignore src/use-provider.test.js",
+    "dev": "babel src -d ./dist --watch --ignore src/use-provider.test.js",
+    "test": "jest",
+    "lint": "eslint src",
+    "prepublishOnly": "yarn lint && yarn test && yarn build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^8.0.1",
+    "@testing-library/react-hooks": "^1.0.3",
+    "eslint": "^6.0.0",
+    "eslint-plugin-react": "^7.14.1",
+    "jest": "^24.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
+  }
+}
