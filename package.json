@@ -1,6 +1,6 @@
 {
   "name": "use-provider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A React Hook that uses providers created with React Context.",
   "repository": {
     "type": "git",
