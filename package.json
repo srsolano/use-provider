@@ -1,7 +1,7 @@
 {
   "name": "use-provider",
   "version": "1.0.3",
-  "description": "A React Hook that uses providers created with React Context.",
+  "description": "A React Hook that connects your components to multiple React Contexts.",
   "repository": {
     "type": "git",
     "url": "https://github.com/srsolano/use-provider.git"
