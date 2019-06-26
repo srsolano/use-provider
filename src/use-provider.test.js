@@ -30,6 +30,12 @@ const createTestComponent = TestProvider => {
 };
 
 describe('createProvider', () => {
+  console.error = jest.fn();
+
+  beforeEach(() => {
+    console.error.mockClear();
+  });
+
   afterEach(cleanup);
 
   it('should create a valid context provider', () => {
@@ -121,5 +127,6 @@ describe('useProvider', () => {
   it('should not crash if is called with no params', () => {
     const { result } = renderHook(() => useProvider());
     expect(result.current).toEqual([undefined, undefined]);
+    expect(console.error).toHaveBeenCalled();
   });
 });

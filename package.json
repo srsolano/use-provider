@@ -1,6 +1,6 @@
 {
   "name": "use-provider",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A React Hook that connects your components to multiple React Contexts.",
   "repository": {
     "type": "git",
