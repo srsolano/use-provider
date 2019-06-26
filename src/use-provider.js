@@ -39,5 +39,14 @@ export function combineProviders(providers) {
 export function useProvider(Provider) {
   const { StateContext = {}, DispatchContext = {} } =
     contextMap.get(Provider) || {};
-  return [useContext(StateContext), useContext(DispatchContext)];
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
+
+  if (state === undefined || dispatch === undefined) {
+    console.error(
+      "useProvider must be called with a Provider existent in the component's tree"
+    );
+  }
+
+  return [state, dispatch];
 }
