@@ -1,6 +1,6 @@
 # use-provider
 
-A React Hook that uses providers created with React Context.
+A React Hook that connects your components to multiple React Contexts.
 
 [![version](https://img.shields.io/npm/v/use-provider.svg)](https://www.npmjs.com/package/use-provider)
 [![minified size](https://img.shields.io/bundlephobia/min/use-provider.svg)](https://www.npmjs.com/package/use-provider)
@@ -23,14 +23,14 @@ yarn add use-provider
 
 ## Usage
 
-With this module you can create multiple Contexts that are managed internally with `useReducer`.
+With this module you can create multiple React Contexts that are managed internally with `useReducer` and then connect your components to any of those Contexts through its Providers.
 
 ### createProvider(initialState, reducer)
 
 ```JavaScript
 // providers.js
 
-import { createProvider } from './use-provider';
+import { createProvider } from 'use-provider';
 
 const initialStateA = { counter: 0 };
 const reducerA = (state, action) => {
@@ -85,14 +85,14 @@ ReactDOM.render(
 
 ### useProvider(provider)
 
-Each time you call `useProvider` inside a component you are 'connecting' the component to the provider's context. `useProvider` returns the current `state` and a `dispatch` function to send actions that generate a new state (like in Redux).
+Each time you call `useProvider` inside a component you are connecting the component to the provider's context. `useProvider` returns the current `state` and a `dispatch` function to send actions that update the context's state.
 
 ```JavaScript
 // App.js
 
 ...
 
-import { useProvider } from './use-provider';
+import { useProvider } from 'use-provider';
 import { ProviderA, ProviderB } from './providers';
 
 const ChildComponent = React.memo(
@@ -127,6 +127,7 @@ function App() {
       <button onClick={() => dispatchB({ type: 'increment' })}>
         Increment state B
       </button>
+
       <ChildComponent />
     </div>
   );
@@ -138,9 +139,10 @@ function App() {
 
 ### combineProviders([providers])
 
-`combineProviders` lets you combine multiple providers into a single one that shares each of the contained states through the component tree. To connect components to any of the combined providers you do it calling `useProvider(provider)` the same way as with single providers.
+`combineProviders` lets you combine multiple providers into a single one. To connect components to any of the combined providers you do it calling `useProvider(provider)` passing the specific provider you want to use from the combined group.
 
 ```JavaScript
+// index.js
 
 const CombinedProvider = combineProviders([
     ProviderA,
@@ -155,6 +157,16 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
+// MyComponent.js
+
+import { ProviderA } from './providers';
+
+const MyComponent = () => {
+  const [stateA, dispatchA] = useProvider(ProviderA);
+
+  return(...);
+}
 ```
 
 ## License
